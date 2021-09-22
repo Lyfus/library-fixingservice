@@ -14,6 +14,7 @@ export class FixService {
     /// Simulation d'une réparation de livre
     @Process('fromHomeToReparation')
     FixBook(job: Job<any>) {
+        // console.log("fixBook");
         setTimeout(() => {
             let reparedBook = job.data.book;
             reparedBook.state = "fixed"

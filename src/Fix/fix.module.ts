@@ -7,21 +7,19 @@ import { FixService } from './fix.service';
   imports: [
     BullModule.forRoot({
         redis: {
-          host: 'localhost',
+          host: 'redis-server',
           port: 6379
         }
-      }),
-      BullModule.registerQueue({
-        name: 'book',
-        redis: {
-          port: 6379,
-        },
     }),
     BullModule.registerQueue({
-        name: 'fixing',
+        name: 'book',
         redis: {
-            port: 6379,
-        },
+          host: 'redis-server',
+          port: 6379
+        }
+    }),
+    BullModule.registerQueue({
+        name: 'fixing'
     })
   ],
   controllers: [FixController],
